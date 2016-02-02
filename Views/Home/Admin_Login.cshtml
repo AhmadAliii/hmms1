@@ -1,0 +1,44 @@
+﻿@model HMS1.Models.AdminBO
+
+@{
+    ViewBag.Title = "Admin_Login";
+    Layout = null;
+}
+
+<h2>Admin_Login</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AdminBO</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.u_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.u_name)
+            @Html.ValidationMessageFor(model => model.u_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+
+        <p>
+            <input type="submit" value="Login" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Home", "Admin_Login")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
